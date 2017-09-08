@@ -1,0 +1,6 @@
+D:\Документы\source\repos\Sermone\Sermone\bin\Debug\Sermone.exe
+D:\Документы\source\repos\Sermone\Sermone\bin\Debug\Sermone.pdb
+D:\Документы\source\repos\Sermone\Sermone\obj\Debug\Sermone.csprojResolveAssemblyReference.cache
+D:\Документы\source\repos\Sermone\Sermone\obj\Debug\Sermone.csproj.CoreCompileInputs.cache
+D:\Документы\source\repos\Sermone\Sermone\obj\Debug\Sermone.exe
+D:\Документы\source\repos\Sermone\Sermone\obj\Debug\Sermone.pdb
