@@ -11,7 +11,8 @@ namespace Sermone
     {
         static void Main(string[] args)
         {
-            const int MAX_DICT_SIZE = 100;
+            const int MAX_DICT_SIZE = 100; // maximum words in dictionary
+            int selIDX = 0; // selected dictionary index
             string path = AppDomain.CurrentDomain.BaseDirectory;
 
             List<Dictionary> dictionaries = new List<Dictionary>();
@@ -33,10 +34,10 @@ namespace Sermone
                             string temp = sr.ReadLine();
                             if (temp == null)
                             {
-                                dictionaries.Add(new Dictionary(count, original, translated));
+                                dictionaries.Add(new Dictionary(count, original, translated, dictPath));
                                 break;
                             }
-                            string[] tempArr = temp.Split(':');
+                            string[] tempArr = temp.Split(':'); // we get the original word and its translation
                             original[count] = tempArr[0];
                             translated[count] = tempArr[1];
                             count++;                    
@@ -44,20 +45,30 @@ namespace Sermone
                     }
                 }
             }
-            //demo
-            while(true)
+            int dictIDXtemp = 0;
+            foreach(Dictionary dict in dictionaries)
             {
-                Random random = new Random();
-                Dictionary dict = dictionaries[0];
-                int rndWordIDX = random.Next(0, dict.wordsCount);
-                string tempOriginalWord = dict.getWordOriginal(rndWordIDX);
-
-                Console.WriteLine(dict.getWordTranslated(rndWordIDX));
-                Console.WriteLine(Console.ReadLine() == tempOriginalWord);
-                Console.WriteLine("================================================");
-
+                Console.WriteLine(dictIDXtemp + " - " + dict.getName);
+                dictIDXtemp++;
             }
-            //
+            Console.WriteLine("Введите номер словаря:");
+            selIDX = Int32.Parse(Console.ReadLine());
+            if (selIDX >= dictionaries.Count) Console.WriteLine("Несуществующий номер словаря!");
+            else
+            {
+                while (true)
+                {
+                    Random random = new Random();
+                    Dictionary dict = dictionaries[selIDX];
+                    int rndWordIDX = random.Next(0, dict.wordsCount);
+                    string tempOriginalWord = dict.getWordOriginal(rndWordIDX);
+
+                    Console.WriteLine(dict.getWordTranslated(rndWordIDX));
+                    Console.WriteLine(Console.ReadLine() == tempOriginalWord);
+                    Console.WriteLine("================================================");
+
+                }
+            }
             Console.ReadLine();
         }
     }
