@@ -8,11 +8,11 @@ namespace Sermone
     class Dictionary
     {
         private int _wordsCount;
-        private string[] _wordsOriginal;
-        private string[] _wordsTranslated;
+        private List<string> _wordsOriginal;
+        private List<string> _wordsTranslated;
         private string _nameOfDictionary;
 
-        public Dictionary(int count, string[] original, string[] translated, string path)
+        public Dictionary(int count, List<string> original, List<string> translated, string path)
         {
             wordsCount = count;
             _wordsOriginal = original;
@@ -38,6 +38,16 @@ namespace Sermone
         public string getWordTranslated(int IDX)
         {
             return _wordsTranslated[IDX];
+        }
+
+        public List<string> getAllWordsOriginal
+        {
+            get { return _wordsOriginal; }
+        }
+
+        public List<string> getAllWordsTranslated
+        {
+            get { return _wordsTranslated; }
         }
     }
 }
